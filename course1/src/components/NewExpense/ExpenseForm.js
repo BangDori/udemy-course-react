@@ -1,35 +1,72 @@
-import React, { useCallback } from "react";
+import React, { useState, useCallback } from "react";
 
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-  const titleChangeHandler = useCallback(() => {
-    console.log("title changed!!");
+  const [enteredForm, setEnteredForm] = useState({
+    title: "",
+    amount: "",
+    date: "",
+  });
+  const { title, amount, date } = enteredForm;
+
+  const changeHandler = useCallback((event) => {
+    const { name, value } = event.target;
+
+    setEnteredForm((prevForm) => ({ ...prevForm, [name]: value }));
   }, []);
 
+  const submitHandler = useCallback(
+    (event) => {
+      event.preventDefault();
+
+      const expenseData = {
+        title: title,
+        amount: amount,
+        date: new Date(date),
+      };
+
+      setEnteredForm({
+        title: "",
+        amount: "",
+        date: "",
+      });
+    },
+    [amount, date, title]
+  );
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            name="title"
+            onChange={changeHandler}
+            value={title}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
           <input
             type="number"
-            min="0.01"
+            name="amount"
+            // min="0.01"
             stop="0.01"
-            onChange={titleChangeHandler}
+            onChange={changeHandler}
+            value={amount}
           />
         </div>
         <div className="new-expense__control">
           <label>Date</label>
           <input
             type="date"
+            name="date"
             min="2019-01-01"
             stop="2022-12-31"
-            onChange={titleChangeHandler}
+            onChange={changeHandler}
+            value={date}
           />
         </div>
       </div>
