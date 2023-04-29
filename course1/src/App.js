@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/Expenses/Expenses";
@@ -26,16 +26,11 @@ const App = () => {
     },
   ];
 
-  // return React.createElement(
-  //   "div",
-  //   {},
-  //   React.createElement("h2", {}, "Cost Calculate"),
-  //   React.createElement(Expenses, { items: expenses })
-  // );
+  const addExpenseHandler = useCallback((expense) => {}, []);
 
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );

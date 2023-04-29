@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = ({ onSaveExpenseData }) => {
   const [enteredForm, setEnteredForm] = useState({
     title: "",
     amount: "",
@@ -26,13 +26,14 @@ const ExpenseForm = () => {
         date: new Date(date),
       };
 
+      onSaveExpenseData(expenseData);
       setEnteredForm({
         title: "",
         amount: "",
         date: "",
       });
     },
-    [amount, date, title]
+    [amount, date, title, onSaveExpenseData]
   );
 
   return (
