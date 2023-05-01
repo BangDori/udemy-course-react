@@ -1,25 +1,17 @@
-import React, { useCallback, useEffect, useState } from "react";
-import ExpenseItem from "./ExpenseItem";
-import "./Expenses.css";
+import React, { useCallback, useState } from "react";
+
 import Card from "../UI/Card";
 import ExpenseFilter from "./ExpenseFilter";
+import ExpensesList from "./ExpensesList";
+import "./Expenses.css";
+import ExpensesChart from "./ExpensesChart";
 
 const Expenses = ({ items }) => {
   const [filteredYear, setFilteredYear] = useState("2023");
 
-  const filteredExpenses = items
-    .filter((item) => item.date.getUTCFullYear().toString() === filteredYear)
-    .map((expense) => (
-      <ExpenseItem
-        key={expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-      />
-    ));
-
-  const expensesContent =
-    filteredExpenses === 0 ? <p>No expenses found.</p> : filteredExpenses;
+  const filteredExpenses = items.filter(
+    (item) => item.date.getUTCFullYear().toString() === filteredYear
+  );
 
   const filterChangeHandler = useCallback((selectedYear) => {
     setFilteredYear(selectedYear);
@@ -31,7 +23,8 @@ const Expenses = ({ items }) => {
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      {expensesContent}
+      <ExpensesChart expenses={filteredExpenses} />
+      <ExpensesList items={filteredExpenses} />
     </Card>
   );
 };
