@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 
 import Card from "../UI/Card";
 import ExpenseFilter from "./ExpenseFilter";
@@ -13,9 +13,7 @@ const Expenses = ({ items }) => {
     (item) => item.date.getUTCFullYear().toString() === filteredYear
   );
 
-  const filterChangeHandler = useCallback((selectedYear) => {
-    setFilteredYear(selectedYear);
-  }, []);
+  const filterChangeHandler = (selectedYear) => setFilteredYear(selectedYear);
 
   return (
     <Card className="expenses">

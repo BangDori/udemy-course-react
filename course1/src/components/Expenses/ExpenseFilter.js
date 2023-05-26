@@ -1,12 +1,9 @@
-import React, { useCallback } from "react";
+import React from "react";
 
 import "./ExpenseFilter.css";
 
 const ExpenseFilter = ({ selected, onChangeFilter }) => {
-  const onChangeHandler = useCallback(
-    (e) => onChangeFilter(e.target.value),
-    [onChangeFilter]
-  );
+  const onChangeHandler = (e) => onChangeFilter(e.target.value);
 
   return (
     <div className="expenses-filter">

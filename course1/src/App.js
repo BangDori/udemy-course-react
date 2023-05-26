@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 
 import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/Expenses/Expenses";
@@ -28,9 +28,9 @@ const DUMMY_EXPENSES = [
 
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
-  const addExpenseHandler = useCallback((expense) => {
+  // 기존의 Expenses를 저장하면서 새로운 expense 추가
+  const addExpenseHandler = (expense) =>
     setExpenses((prevExpenses) => [expense, ...prevExpenses]);
-  }, []);
 
   return (
     <div className="app">

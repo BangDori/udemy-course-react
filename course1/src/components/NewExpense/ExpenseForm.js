@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 
 import "./ExpenseForm.css";
 
@@ -10,32 +10,29 @@ const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
   });
   const { title, amount, date } = enteredForm;
 
-  const changeHandler = useCallback((event) => {
+  const changeHandler = (event) => {
     const { name, value } = event.target;
 
     setEnteredForm((prevForm) => ({ ...prevForm, [name]: value }));
-  }, []);
+  };
 
-  const submitHandler = useCallback(
-    (event) => {
-      event.preventDefault();
+  const submitHandler = (event) => {
+    event.preventDefault();
 
-      const expenseData = {
-        title: title,
-        amount: +amount,
-        date: new Date(date),
-      };
+    const expenseData = {
+      title: title,
+      amount: Number(amount),
+      date: new Date(date),
+    };
 
-      onSaveExpenseData(expenseData);
-      setEnteredForm({
-        title: "",
-        amount: "",
-        date: "",
-      });
-      onCancel(false);
-    },
-    [amount, date, title, onSaveExpenseData, onCancel]
-  );
+    onSaveExpenseData(expenseData);
+    setEnteredForm({
+      title: "",
+      amount: "",
+      date: "",
+    });
+    onCancel(false);
+  };
 
   return (
     <form onSubmit={submitHandler}>

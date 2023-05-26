@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
@@ -6,24 +6,15 @@ import "./NewExpense.css";
 const NewExpense = ({ onAddExpense }) => {
   const [isEditing, setIsEditing] = useState(false);
 
-  const saveExpenseDataHandler = useCallback(
-    (enteredExpenseData) => {
-      const expenseData = {
-        ...enteredExpenseData,
-        id: Math.random().toString(),
-      };
-      onAddExpense(expenseData);
-    },
-    [onAddExpense]
-  );
-
-  const startEditingHandler = useCallback(() => {
-    setIsEditing(true);
-  }, []);
-
-  const stopEditingHandler = useCallback(() => {
-    setIsEditing(false);
-  }, []);
+  const saveExpenseDataHandler = (enteredExpenseData) => {
+    const expenseData = {
+      ...enteredExpenseData,
+      id: Math.random().toString(),
+    };
+    onAddExpense(expenseData);
+  };
+  const startEditingHandler = () => setIsEditing(true);
+  const stopEditingHandler = () => setIsEditing(false);
 
   return (
     <div className="new-expense">
