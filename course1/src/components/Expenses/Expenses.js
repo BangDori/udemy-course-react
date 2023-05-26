@@ -17,11 +17,11 @@ const Expenses = ({ items }) => {
 
   return (
     <Card className="expenses">
+      <ExpensesChart expenses={filteredExpenses} />
       <ExpenseFilter
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      <ExpensesChart expenses={filteredExpenses} />
       <ExpensesList items={filteredExpenses} />
     </Card>
   );
