@@ -13,4 +13,6 @@ App
     └ ExpenseList // ExpenseList
       └ ExpenseItem // Expense
         └ ExpenseDate // Expense 날짜
+UI
+  └ Card // 공통 컴포넌트
 ```
