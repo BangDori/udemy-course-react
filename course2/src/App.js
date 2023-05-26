@@ -29,14 +29,7 @@ const App = () => {
         <CourseInput onAddGoal={addGoalHandler} />
       </section>
       <section id="goals">
-        {courseGoals.length > 0 ? (
-          <CourseGoalList
-            items={courseGoals}
-            onDeleteItem={deleteItemHandler}
-          />
-        ) : (
-          <p style={{ textAlign: "center" }}>No goals found. Maybe add one?</p>
-        )}
+        <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
       </section>
     </div>
   );
