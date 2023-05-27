@@ -1,5 +1,3 @@
-const Wrapper = ({ children }) => {
-  return children;
-};
+const Wrapper = ({ children }) => children;
 
 export default Wrapper;

@@ -38,9 +38,7 @@ const AddUser = ({ onAddUser }) => {
     ageInputRef.current.value = "";
   };
 
-  const errorHandler = () => {
-    setError(null);
-  };
+  const errorHandler = () => setError(null);
 
   return (
     <>

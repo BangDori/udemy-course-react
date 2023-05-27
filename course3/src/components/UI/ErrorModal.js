@@ -25,19 +25,17 @@ const ModalOverlay = ({ title, message, onConfirm }) => (
   </Card>
 );
 
-const ErrorModal = ({ title, message, onConfirm }) => {
-  return (
-    <>
-      {ReactDOM.createPortal(
-        <Backdrop onConfirm={onConfirm} />,
-        document.getElementById("backdrop-root")
-      )}
-      {ReactDOM.createPortal(
-        <ModalOverlay title={title} message={message} onConfirm={onConfirm} />,
-        document.getElementById("overlay-root")
-      )}
-    </>
-  );
-};
+const ErrorModal = ({ title, message, onConfirm }) => (
+  <>
+    {ReactDOM.createPortal(
+      <Backdrop onConfirm={onConfirm} />,
+      document.getElementById("backdrop-root")
+    )}
+    {ReactDOM.createPortal(
+      <ModalOverlay title={title} message={message} onConfirm={onConfirm} />,
+      document.getElementById("overlay-root")
+    )}
+  </>
+);
 
 export default ErrorModal;
