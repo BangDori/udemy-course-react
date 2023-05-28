@@ -11,10 +11,7 @@ const App = () => {
   return (
     <>
       <MainHeader />
-      <main>
-        {!isLoggedIn && <Login />}
-        {isLoggedIn && <Home />}
-      </main>
+      <main>{isLoggedIn ? <Home /> : <Login />}</main>
     </>
   );
 };

@@ -10,19 +10,17 @@ const Navigation = () => {
     <nav className={classes.nav}>
       <ul>
         {isLoggedIn && (
-          <li>
-            <a href="/">Users</a>
-          </li>
-        )}
-        {isLoggedIn && (
-          <li>
-            <a href="/">Admin</a>
-          </li>
-        )}
-        {isLoggedIn && (
-          <li>
-            <button onClick={onLogout}>Logout</button>
-          </li>
+          <>
+            <li>
+              <a href="/">Users</a>
+            </li>
+            <li>
+              <a href="/">Admin</a>
+            </li>
+            <li>
+              <button onClick={onLogout}>Logout</button>
+            </li>
+          </>
         )}
       </ul>
     </nav>
