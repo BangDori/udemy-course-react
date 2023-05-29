@@ -6,9 +6,8 @@ import CartContext from "../../../store/cart-context";
 
 const MealItem = ({ id, name, description, price }) => {
   const cartCtx = useContext(CartContext);
-  const addToCartHandler = (amount) => {
+  const addToCartHandler = (amount) =>
     cartCtx.addItem({ id, name, amount, price });
-  };
 
   return (
     <li className={classes.meal}>

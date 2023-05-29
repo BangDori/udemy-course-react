@@ -11,9 +11,7 @@ const Cart = ({ onClose }) => {
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
 
-  const cartItemRemoveHandler = (id) => {
-    cartCtx.removeItem(id);
-  };
+  const cartItemRemoveHandler = (id) => cartCtx.removeItem(id);
   const cartItemAddHandler = (item) => {
     // There's a small error here - this should be cartCtx.addItem({ ...item, amount: 1 })
     // cartCtx.addItem(item);
