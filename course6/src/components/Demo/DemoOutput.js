@@ -8,4 +8,5 @@ const DemoOutput = ({ show }) => {
   return <MyParagraph>{show ? "This is new!" : ""}</MyParagraph>;
 };
 
-export default DemoOutput;
+// props의 값이 변경되지 않았다면, 컴포넌트를 재실행 하지 않음
+export default React.memo(DemoOutput);
