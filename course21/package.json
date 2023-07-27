@@ -1,0 +1,12 @@
+{
+  "name": "udemy-course-react",
+  "version": "1.0.0",
+  "description": "아래 강의 영상을 시청하며, 작성한 코드 입니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
